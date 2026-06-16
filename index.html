@@ -60,14 +60,15 @@
         padding: 6px 10px;
       }
       .trust-gold-seal {
-        width: 38px;
-        height: 38px;
-        background: #c8a000;
+        width: 42px;
+        height: 42px;
+        background: radial-gradient(circle at 35% 35%, #f0c020, #c8a000);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
+        box-shadow: 0 2px 6px rgba(200, 160, 0, 0.35);
       }
       .trust-gold-seal svg {
         width: 22px;
@@ -144,6 +145,15 @@
         border-radius: 8px;
         overflow: hidden;
         border: 1px solid #dde3ed;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 80px;
+        max-height: calc(100vh - 100px);
+        overflow-y: auto;
+        scrollbar-width: none;
+      }
+      .sb::-webkit-scrollbar {
+        display: none;
       }
       .main {
         flex: 1;
@@ -472,18 +482,19 @@
 
       /* Recommendation banner */
       .rec-banner {
-        background: linear-gradient(135deg, #002a73, #003fa8);
-        border-radius: 8px;
-        padding: 14px 18px;
+        background: linear-gradient(135deg, #001e5c 0%, #002d87 50%, #0040b8 100%);
+        border-radius: 10px;
+        padding: 16px 20px;
         display: flex;
         align-items: flex-start;
-        gap: 12px;
+        gap: 14px;
         color: #fff;
+        box-shadow: 0 4px 16px rgba(0, 45, 135, 0.25);
       }
       .rec-banner-icon {
-        width: 36px;
-        height: 36px;
-        background: rgba(255, 255, 255, 0.15);
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.18);
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -492,8 +503,8 @@
         margin-top: 2px;
       }
       .rec-banner-icon svg {
-        width: 18px;
-        height: 18px;
+        width: 20px;
+        height: 20px;
       }
       .rec-banner-title {
         font-size: 15px;
@@ -517,6 +528,11 @@
         border-radius: 8px;
         border: 1px solid #dde3ed;
         overflow: hidden;
+        transition: box-shadow 0.18s ease, border-color 0.18s ease;
+      }
+      .rec-card:hover {
+        box-shadow: 0 6px 20px rgba(0, 48, 135, 0.1);
+        border-color: #b8cce8;
       }
       .rc-head {
         padding: 10px 14px;
@@ -757,8 +773,9 @@
         justify-content: space-between;
         background: #fff;
         border-radius: 8px;
-        padding: 10px 16px;
+        padding: 12px 18px;
         border: 1px solid #dde3ed;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
       }
       .results-count {
         font-size: 15px;
@@ -857,14 +874,18 @@
         display: flex;
         align-items: center;
         gap: 6px;
-        padding: 4px 12px;
+        padding: 6px 14px;
         border-right: 1px solid #eaecf0;
         cursor: pointer;
         white-space: nowrap;
         flex-shrink: 0;
+        transition: background 0.12s;
       }
       .logo-item:last-child {
         border-right: none;
+      }
+      .logo-item:hover {
+        background: #f8f9fb;
       }
       .logo-item:hover .logo-price {
         color: #003087;
@@ -885,6 +906,11 @@
         border: 1px solid #dde3ed;
         border-radius: 8px;
         overflow: hidden;
+        transition: box-shadow 0.18s ease, border-color 0.18s ease;
+      }
+      .tc:hover {
+        box-shadow: 0 4px 16px rgba(0, 48, 135, 0.1);
+        border-color: #c4d4ee;
       }
       .tc-num {
         font-size: 13px;
@@ -1092,59 +1118,237 @@
         background: #fff;
         border: 1px solid #dde3ed;
         border-radius: 8px;
-        padding: 14px 16px;
+        padding: 18px 20px;
         display: flex;
         align-items: flex-start;
-        gap: 14px;
+        gap: 18px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
       }
       .berater-photo {
-        width: 70px;
-        height: 70px;
+        width: 80px;
+        height: 80px;
         border-radius: 50%;
-        background: linear-gradient(135deg, #b8cce8, #7aa8d8);
+        background: linear-gradient(160deg, #d4e5f7 0%, #a8c8e8 40%, #7aaed4 100%);
         flex-shrink: 0;
         overflow: hidden;
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         justify-content: center;
+        border: 3px solid #e8f0f8;
+        position: relative;
+      }
+      .berater-photo-face {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
       }
       .berater-photo svg {
-        width: 40px;
-        height: 40px;
+        width: 44px;
+        height: 44px;
         color: #fff;
       }
       .berater-quote {
-        font-size: 13.5px;
-        color: #333;
-        line-height: 1.5;
+        font-size: 14px;
+        color: #222;
+        line-height: 1.6;
         flex: 1;
         font-style: italic;
+        font-weight: 400;
       }
       .berater-info {
         display: flex;
         flex-wrap: wrap;
-        gap: 6px 20px;
-        margin-top: 10px;
+        gap: 6px 24px;
+        margin-top: 12px;
         font-size: 12px;
         color: #555;
         align-items: center;
+        padding-top: 12px;
+        border-top: 1px solid #f0f2f5;
       }
       .berater-name {
-        font-size: 14px;
+        font-size: 15px;
         font-weight: 700;
         color: #1a1a2e;
-        margin-bottom: 4px;
+        margin-bottom: 3px;
       }
       .berater-phone {
         color: #003087;
         font-weight: 600;
         font-size: 13px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
       }
       .berater-more {
         color: #003087;
         font-size: 12px;
         cursor: pointer;
         margin-left: auto;
+        font-weight: 500;
+      }
+
+      /* ── Brand Logos ── */
+      .brand-logo {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        line-height: 1;
+      }
+      .brand-dkv {
+        background: #007a3d;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 900;
+        padding: 4px 8px;
+        border-radius: 4px;
+        letter-spacing: 0.5px;
+        font-family: Arial Black, Arial, sans-serif;
+      }
+      .brand-dkv-lg {
+        background: #007a3d;
+        color: #fff;
+        font-size: 22px;
+        font-weight: 900;
+        padding: 5px 10px;
+        border-radius: 5px;
+        letter-spacing: 0.5px;
+        font-family: Arial Black, Arial, sans-serif;
+      }
+      .brand-barmenia {
+        color: #c0392b;
+        font-weight: 800;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .brand-barmenia-star {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+      }
+      .brand-allianz {
+        color: #003087;
+        font-weight: 800;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .brand-allianz-eagle {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+      }
+      .brand-axa {
+        color: #00008f;
+        font-weight: 900;
+        font-size: 18px;
+        font-style: italic;
+        font-family: Arial Black, Arial, sans-serif;
+        letter-spacing: -1px;
+      }
+      .brand-ergo {
+        color: #e3001b;
+        font-weight: 900;
+        font-size: 16px;
+        font-family: Arial Black, Arial, sans-serif;
+        letter-spacing: 1px;
+      }
+      .brand-signal {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: #003087;
+        font-weight: 700;
+        font-size: 12px;
+      }
+      .brand-signal-mark {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+      }
+      .brand-mv {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .brand-mv-badge {
+        background: #c0392b;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 900;
+        padding: 3px 7px;
+        border-radius: 3px;
+        font-family: Arial, sans-serif;
+      }
+      .brand-mv-name {
+        color: #c0392b;
+        font-weight: 700;
+        font-size: 13px;
+      }
+      .brand-bayerische {
+        color: #003087;
+        font-weight: 800;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .brand-arag {
+        background: #f39200;
+        color: #fff;
+        font-weight: 900;
+        font-size: 13px;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: Arial Black, Arial, sans-serif;
+        letter-spacing: -0.5px;
+      }
+      .brand-lkh {
+        background: #e67e22;
+        color: #fff;
+        font-weight: 900;
+        font-size: 15px;
+        padding: 4px 9px;
+        border-radius: 4px;
+        font-family: Arial, sans-serif;
+      }
+      .brand-janitos {
+        color: #003087;
+        font-style: italic;
+        font-size: 15px;
+        font-weight: 700;
+        font-family: Georgia, serif;
+      }
+      .brand-janitos span {
+        color: #f90;
+        font-style: normal;
+      }
+      .brand-bavaria {
+        color: #003087;
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: -0.3px;
+      }
+
+      /* Logo bar brand items */
+      .logo-item-inner {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .logo-item-text {
+        display: flex;
+        flex-direction: column;
       }
 
       /* ── Header ── */
@@ -3439,6 +3643,39 @@
       </div>
 
       <!-- Sub-Navigation -->
+      <nav class="subnav">
+        <div class="subnav-inner">
+          <div class="snav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            Versicherungen
+          </div>
+          <div class="snav-item active">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Krankenhaus-Zusatz
+          </div>
+          <div class="snav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            Zahn-Zusatz
+          </div>
+          <div class="snav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Private KV
+          </div>
+          <div class="snav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 14l2 2 4-4"/></svg>
+            Rechtsschutz
+          </div>
+          <div class="snav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Haftpflicht
+          </div>
+          <div class="snav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Hausrat
+          </div>
+          <div class="snav-all">Alle Produkte ›</div>
+        </div>
+      </nav>
     </header>
 
     <!-- ── Title Bar ── -->
@@ -3724,10 +3961,11 @@
             <div class="rc-body">
               <div class="rc-logo-row">
                 <div>
-                  <div class="rc-logo">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#003087">
-                      <circle cx="12" cy="12" r="10" />
-                      <path d="M8 12l3 3 5-5" stroke="white" stroke-width="2" fill="none" />
+                  <div class="rc-logo brand-bayerische">
+                    <svg width="22" height="22" viewBox="0 0 32 32">
+                      <circle cx="16" cy="16" r="14" fill="#003087"/>
+                      <path d="M10 22 Q16 8 22 22" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                      <circle cx="16" cy="11" r="3" fill="#f5a800"/>
                     </svg>
                     die Bayerische
                   </div>
@@ -3808,19 +4046,9 @@
             <div class="rc-body">
               <div class="rc-logo-row">
                 <div>
-                  <div class="rc-logo" style="color: #c0392b">
-                    <span
-                      style="
-                        background: #c0392b;
-                        color: #fff;
-                        font-size: 11px;
-                        font-weight: 800;
-                        padding: 2px 5px;
-                        border-radius: 3px;
-                      "
-                      >mv</span
-                    >
-                    münchener verein
+                  <div class="rc-logo brand-mv" style="font-size:14px">
+                    <span class="brand-mv-badge">mv</span>
+                    <span class="brand-mv-name">münchener verein</span>
                   </div>
                   <div class="rc-logo-sub">Zukunft. In besten Händen.</div>
                 </div>
@@ -3917,43 +4145,86 @@
           <button class="logos-arr">‹</button>
           <div class="logos-scroll">
             <div class="logo-item">
-              <div>
-                <div class="logo-brand" style="color: #c0392b">★ Barmenia Gothaer</div>
-                <div class="logo-price">ab 8,83 €</div>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div>
-                <div class="logo-brand" style="color: #003087">
-                  Allianz <span style="color: #1a7dc4; font-size: 11px">ⓘ</span>
+              <div class="logo-item-inner">
+                <div class="logo-item-text">
+                  <div class="brand-barmenia">
+                    <svg class="brand-barmenia-star" viewBox="0 0 24 24">
+                      <path d="M12 2l2 4h4l-3.5 3 1.5 4.5L12 11l-4 2.5 1.5-4.5L6 6h4z" fill="#c0392b"/>
+                      <path d="M12 11l-4 2.5 1.5-4.5L6 6h4l2-4 2 4h4l-3.5 3 1.5 4.5z" fill="none" stroke="#c0392b" stroke-width="0.5"/>
+                    </svg>
+                    Barmenia Gothaer
+                  </div>
+                  <div class="logo-price">ab 8,83 €</div>
                 </div>
-                <div class="logo-price">ab 29,32 €</div>
               </div>
             </div>
             <div class="logo-item">
-              <div>
-                <div class="logo-brand" style="color: #003087">BavariaDirecte</div>
-                <div class="logo-price">ab 12,00 €</div>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div>
-                <div class="logo-brand" style="color: #1a6dc4">DKV</div>
-                <div class="logo-price">ab 3,80 €</div>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div>
-                <div class="logo-brand" style="color: #e00">ERGO</div>
-                <div class="logo-price">ab 19,80 €</div>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div>
-                <div class="logo-brand" style="color: #003087">
-                  SIGNAL IDUNA <span style="font-size: 11px">⊕</span>
+              <div class="logo-item-inner">
+                <div class="logo-item-text">
+                  <div class="brand-allianz">
+                    <svg class="brand-allianz-eagle" viewBox="0 0 32 32">
+                      <circle cx="16" cy="16" r="14" fill="#003087"/>
+                      <text x="16" y="21" text-anchor="middle" fill="white" font-size="13" font-weight="900" font-family="Arial">A</text>
+                    </svg>
+                    Allianz
+                  </div>
+                  <div class="logo-price">ab 29,32 €</div>
                 </div>
-                <div class="logo-price">ab 11,34 €</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="logo-item-inner">
+                <div class="logo-item-text">
+                  <div class="brand-bavaria">BavariaDirecte</div>
+                  <div class="logo-price">ab 12,00 €</div>
+                </div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="logo-item-inner">
+                <div class="logo-item-text">
+                  <div><span class="brand-dkv">DKV</span></div>
+                  <div class="logo-price">ab 3,80 €</div>
+                </div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="logo-item-inner">
+                <div class="logo-item-text">
+                  <div class="brand-ergo">ERGO</div>
+                  <div class="logo-price">ab 19,80 €</div>
+                </div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="logo-item-inner">
+                <div class="logo-item-text">
+                  <div class="brand-signal">
+                    <svg class="brand-signal-mark" viewBox="0 0 32 32">
+                      <circle cx="16" cy="16" r="14" fill="#f5a800"/>
+                      <circle cx="16" cy="16" r="8" fill="#003087"/>
+                      <circle cx="16" cy="16" r="3" fill="#f5a800"/>
+                    </svg>
+                    SIGNAL IDUNA
+                  </div>
+                  <div class="logo-price">ab 11,34 €</div>
+                </div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="logo-item-inner">
+                <div class="logo-item-text">
+                  <div class="brand-axa">AXA</div>
+                  <div class="logo-price">ab 10,17 €</div>
+                </div>
+              </div>
+            </div>
+            <div class="logo-item" style="border-right:none">
+              <div class="logo-item-inner">
+                <div class="logo-item-text">
+                  <div class="brand-arag">ARAG</div>
+                  <div class="logo-price" style="margin-top:4px">ab 10,43 €</div>
+                </div>
               </div>
             </div>
           </div>
@@ -3965,7 +4236,7 @@
           <div class="tc-body">
             <div class="tc-col-logo">
               <div class="tc-num">1.</div>
-              <div class="tc-logo-name" style="color: #1a6dc4; font-size: 20px">DKV</div>
+              <div class="brand-dkv-lg" style="margin-bottom:4px">DKV</div>
               <div class="tc-tariff-name">UZ2</div>
             </div>
             <div class="tc-col-rating">
@@ -4033,8 +4304,11 @@
           <div class="tc-body">
             <div class="tc-col-logo">
               <div class="tc-num">2.</div>
-              <div class="tc-logo-name" style="color: #c0392b; font-size: 13px">
-                ★ Barmenia<br />Gothaer
+              <div class="brand-barmenia" style="margin-bottom:4px">
+                <svg class="brand-barmenia-star" viewBox="0 0 24 24">
+                  <path d="M12 2l2 4h4l-3.5 3 1.5 4.5L12 11l-4 2.5 1.5-4.5L6 6h4z" fill="#c0392b"/>
+                </svg>
+                Barmenia<br>Gothaer
               </div>
               <div class="tc-tariff-name">Mehr Komfort 2-Bett</div>
             </div>
@@ -4103,7 +4377,7 @@
           <div class="tc-body">
             <div class="tc-col-logo">
               <div class="tc-num">3.</div>
-              <div class="tc-logo-name" style="color: #1a6dc4; font-size: 20px">DKV</div>
+              <div class="brand-dkv-lg" style="margin-bottom:4px">DKV</div>
               <div class="tc-tariff-name">KS2</div>
             </div>
             <div class="tc-col-rating">
@@ -4168,21 +4442,8 @@
           <div class="tc-body">
             <div class="tc-col-logo">
               <div class="tc-num">4.</div>
-              <div
-                class="tc-logo-name"
-                style="
-                  color: #e67e22;
-                  font-size: 18px;
-                  background: #e67e22;
-                  color: #fff;
-                  padding: 3px 8px;
-                  border-radius: 4px;
-                  display: inline-block;
-                "
-              >
-                LKH
-              </div>
-              <div class="tc-tariff-name" style="margin-top: 6px">KlinikUpgrade Plus (KUP)</div>
+              <div class="brand-lkh" style="margin-bottom:6px">LKH</div>
+              <div class="tc-tariff-name">KlinikUpgrade Plus (KUP)</div>
             </div>
             <div class="tc-col-rating">
               <div class="tc-score">7,1</div>
@@ -4260,42 +4521,48 @@
         <!-- Berater Card -->
         <div class="berater">
           <div class="berater-photo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-              <circle cx="12" cy="7" r="4" />
+            <!-- Realistic avatar: head + shoulders silhouette -->
+            <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" style="width:80px;height:80px">
+              <!-- Background already set via CSS gradient -->
+              <!-- Shirt / shoulders -->
+              <path d="M10 80 Q15 58 25 54 Q32 70 40 70 Q48 70 55 54 Q65 58 70 80 Z" fill="#1a3a6e" opacity="0.9"/>
+              <!-- Tie -->
+              <path d="M38 54 L40 65 L42 54 L41 52 L39 52 Z" fill="#e8c840" opacity="0.85"/>
+              <!-- Neck -->
+              <rect x="35" y="46" width="10" height="10" rx="2" fill="#d4a882"/>
+              <!-- Head -->
+              <ellipse cx="40" cy="36" rx="14" ry="16" fill="#c8956a"/>
+              <!-- Hair -->
+              <path d="M26 32 Q27 18 40 17 Q53 18 54 32 Q52 22 40 21 Q28 22 26 32Z" fill="#4a3020"/>
+              <!-- Face details -->
+              <ellipse cx="34" cy="35" rx="2.5" ry="2" fill="#5a3010" opacity="0.8"/>
+              <ellipse cx="46" cy="35" rx="2.5" ry="2" fill="#5a3010" opacity="0.8"/>
+              <path d="M35 43 Q40 47 45 43" stroke="#a0705a" stroke-width="1.2" fill="none" stroke-linecap="round"/>
             </svg>
           </div>
           <div style="flex: 1">
             <div class="berater-quote">
-              "Hallo Nils jrk, haben Sie Fragen zur Beantwortung der Gesundheitsfragen? Ich
-              unterstütze Sie gerne persönlich!"
+              "Auf welche Leistungen kommt es an und was bedeutet das konkret für Sie? Ich erkläre es Ihnen in Kürze."
             </div>
             <div class="berater-info">
               <div>
-                <div class="berater-name">Torben</div>
-                <div class="berater-phone">☎ 040 4223 70086</div>
+                <div class="berater-name">Tomben</div>
+                <div class="berater-phone">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.41 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.08 6.08l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+                  040 4223 70086
+                </div>
               </div>
-              <div style="font-size: 12px; color: #555">
-                <div>CHECK24 Kundenberater</div>
+              <div style="font-size: 12px; color: #555; line-height: 1.5">
+                <div style="font-weight:600;color:#333">CHECK24 Kundenberater</div>
                 <div>Mo. bis Fr. 08:00 – 20:00 Uhr</div>
               </div>
-              <div style="font-size: 12px; color: #555">
-                <div>Krankenhaus-Zusatzversicherung</div>
-                <div>seit 3 Jahren Versicherungsexperte</div>
+              <div style="font-size: 12px; color: #555; line-height: 1.5">
+                <div style="font-weight:600;color:#333">Krankenhaus-Zusatzversicherung</div>
+                <div>seit 2 Jahren Versicherungsexperte</div>
               </div>
               <div class="berater-more">
                 mehr
-                <svg
-                  width="11"
-                  height="11"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  style="vertical-align: middle"
-                >
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align:middle"><polyline points="6 9 12 15 18 9"/></svg>
               </div>
             </div>
           </div>
@@ -4306,9 +4573,7 @@
           <div class="tc-body">
             <div class="tc-col-logo">
               <div class="tc-num">5.</div>
-              <div class="tc-logo-name" style="color: #003087; font-style: italic; font-size: 22px">
-                AXA
-              </div>
+              <div class="brand-axa" style="margin-bottom:4px">AXA</div>
               <div class="tc-tariff-name">Krankenhaus Easy</div>
             </div>
             <div class="tc-col-rating">
@@ -4376,7 +4641,10 @@
           <div class="tc-body">
             <div class="tc-col-logo">
               <div class="tc-num">6.</div>
-              <div class="tc-logo-name" style="font-size: 13.5px">die Bayerische</div>
+              <div class="brand-bayerische" style="margin-bottom:4px">
+                <svg width="20" height="20" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="#003087"/><path d="M10 22 Q16 8 22 22" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="16" cy="11" r="3" fill="#f5a800"/></svg>
+                die Bayerische
+              </div>
               <div class="tc-tariff-name">Komfort (2BZ)</div>
             </div>
             <div class="tc-col-rating">
@@ -4444,23 +4712,8 @@
           <div class="tc-body">
             <div class="tc-col-logo">
               <div class="tc-num">7.</div>
-              <div
-                class="tc-logo-name"
-                style="
-                  background: #e67e22;
-                  color: #fff;
-                  border-radius: 50%;
-                  width: 46px;
-                  height: 46px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 13px;
-                "
-              >
-                ARAG
-              </div>
-              <div class="tc-tariff-name" style="margin-top: 6px">MedKlinik 2-Bett S</div>
+              <div class="brand-arag" style="margin-bottom:6px">ARAG</div>
+              <div class="tc-tariff-name">MedKlinik 2-Bett S</div>
             </div>
             <div class="tc-col-rating">
               <div class="tc-score">7,5</div>
@@ -4530,9 +4783,7 @@
           <div class="tc-body">
             <div class="tc-col-logo">
               <div class="tc-num">8.</div>
-              <div class="tc-logo-name" style="color: #003087; font-style: italic; font-size: 15px">
-                janitos<span style="color: #f90; font-style: normal">●</span>
-              </div>
+              <div class="brand-janitos" style="margin-bottom:4px">janitos<span>●</span></div>
               <div class="tc-tariff-name">Stationär Plus (U)</div>
             </div>
             <div class="tc-col-rating">
